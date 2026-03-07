@@ -2,11 +2,12 @@
 
 ## Preparation:
 1. [Download](https://revbayes.github.io/download) and install the latest version of RevBayes suitable for your system. If you download the executable, you just have to unzip the folder and move it to where you want it.
+
 Optinally, for visualizing results:
-2. Install [FigTree](https://github.com/rambaut/figtree/releases) and [Tracer](https://github.com/beast-dev/tracer/releases/tag/v1.7.2)
+1. Install [FigTree](https://github.com/rambaut/figtree/releases) and [Tracer](https://github.com/beast-dev/tracer/releases/tag/v1.7.2)
 or
-3. Install the R package [RevGadgets](https://cran.r-project.org/web/packages/RevGadgets/index.html), which contains a lot of post-processing tools and ways to make nicer plots.
-4. Have whatever editor ready you like to use to write code in (you could even use RStudio, if you use VScode, there's a RevBayes [syntax](https://marketplace.visualstudio.com/items?itemName=Benjamin-So.revSyntax) highlighter available).
+1. Install the R package [RevGadgets](https://cran.r-project.org/web/packages/RevGadgets/index.html), which contains a lot of post-processing tools and ways to make nicer plots.
+2. Have whatever editor ready you like to use to write code in (you could even use RStudio, if you use VScode, there's a RevBayes [syntax](https://marketplace.visualstudio.com/items?itemName=Benjamin-So.revSyntax) highlighter available).
 
 To try whether the install worked: 
 1. Open your favourite command-line console (e.g., Command Prompt, PowerShell, ..., whatever is standard on your operating system)2
