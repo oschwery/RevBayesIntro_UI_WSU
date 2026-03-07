@@ -15,4 +15,8 @@ To try whether the install worked:
 (FigTree and Tracer are standalone Java-based apps, so you can just click on the executables to start them).
 
 
+## Optional Reading:
+[Should all be open-access]
+- Introduction of the graphical modeling concept: [Höhna, Heath, Boussau, Landis, Ronquist, Huelsenbeck (2014) Probabilistic Graphical Model Representation in Phylogenetics, Systematic Biology, 63 (5)](https://academic.oup.com/sysbio/article/63/5/753/2847897)
+- Introduction of the RevBayes software and Rev language: [Höhna, Landis, Heath, Boussau, Lartillot, Moore, Huelsenbeck, Ronquist (2016) RevBayes: Bayesian Phylogenetic Inference Using Graphical Models and an Interactive Model-Specification Language, Systematic Biology, 65 (4)](https://academic.oup.com/sysbio/article/65/4/726/1753608)
 
