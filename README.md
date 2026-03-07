@@ -1,4 +1,6 @@
 # RevBayes Intro in BIOL 531 Macroevolution (UI/WSU)
+**Email**: oschwery [at] uky.edu
+
 
 ## Preparation:
 1. [Download](https://revbayes.github.io/download) and install the latest version of RevBayes suitable for your system. If you download the executable, you just have to unzip the folder and move it to where you want it.
