@@ -1,0 +1,11 @@
+print("Welcome back!")
+
+print("Let's do that again: 2+2")
+
+print("... (calculating ...")
+
+print(2+2)
+
+print("Told ya! Bye!")
+
+q()

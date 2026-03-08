@@ -1,0 +1,7 @@
+print("Hi there!")
+
+print("Let me do some calculating for you: 2+2")
+
+print("... (calculating ...")
+
+print(2+2)
