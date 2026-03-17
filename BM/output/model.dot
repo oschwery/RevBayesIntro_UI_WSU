@@ -1,0 +1,24 @@
+/* Graphical model description in DOT language                                    */
+/*    To view graph:                                                              */
+/*       open this file in the program Graphviz: http://www.graphviz.org          */
+/*       or paste contents into an online viewer: http://stamm-wilbrandt.de/GraphvizFiddle */
+
+digraph REVDAG {
+   n_sigma2 [shape=oval, style=filled, fillcolor=white, label="sigma2"]
+   n_L [shape=record, style=filled, fillcolor=white, label="{L|0.001}"]
+   n_U [shape=record, style=filled, fillcolor=white, label="{U|1}"]
+   n_0x22e51855430 [shape=oval, style="dashed,filled", fillcolor=white, label="function\n[ power(Real<any>) ]"]
+   n_0x22e52075330 [shape=box, style=filled, fillcolor=white, label="0.5"]
+   n_X [shape=oval, style=filled, fillcolor=gray, label="X"]
+   n_tree [shape=record, style=filled, fillcolor=white, label="{tree|...}"]
+   n_X_siteRates [shape=record, style=filled, fillcolor=white, label="{X.siteRates|1}"]
+   n_sigma2 -> n_0x22e51855430[style=dashed]
+   n_L -> n_sigma2
+   n_U -> n_sigma2
+   n_0x22e51855430 -> n_X
+   n_0x22e52075330 -> n_0x22e51855430[style=dashed]
+   n_tree -> n_X
+   n_X_siteRates -> n_X
+   {rank=same; n_X;}
+   graph [bgcolor=lavenderblush2, pad=0.25]
+}
