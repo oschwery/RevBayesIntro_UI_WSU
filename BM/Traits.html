@@ -665,7 +665,7 @@ passed to the BM function!</p>
 and pass those to the functions, rather than the values directly.</p>
 <p>Another way we could have checked our model (and noted the inclusion
 of <code>Y</code>) would have been to plot it as a DAG:</p>
-<pre><code>mymodel.graph(&quot;model.dot&quot;)</code></pre>
+<pre><code>mymodel.graph(&quot;output/model.dot&quot;)</code></pre>
 <p>If we open the resulting .dot file, the contents won’t help us much:
 it is an encoding for the graph. As the header of the file suggests, we
 can visualize this in an appropriate program. I like to use <a href="https://dreampuf.github.io/GraphvizOnline/">GraphvizOnline</a>.
@@ -723,7 +723,7 @@ real-time updates of the same to the screen (as the name suggests).</p>
 and then append all the monitors we need to it:</p>
 <pre><code>monitors = VectorMonitors()
 
-monitors.append( mnModel(filename=&quot;output/simple_BM.log&quot;, printgen=10) )
+monitors.append( mnModel(filename=&quot;output/simple_BM_primates.log&quot;, printgen=10) )
 monitors.append( mnScreen(printgen=1000, sigma2) )</code></pre>
 <p>In both cases, <code>printgen</code> determines the interval at which
 the results are saved/displayed. If we run Markov chains with a lot of
