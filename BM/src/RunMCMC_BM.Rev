@@ -1,0 +1,46 @@
+# Running simple BM
+# Orlando Schwery, 13. Mar. 2026
+
+# this inlcudes the parts of code from the vignette, without the parts that are merely to explore what we did.
+
+setwd("C:/Users/omsc232/Documents/Teaching/RevBayesIntro_UI_WSU/BM/")       # Windows
+# setwd("/mnt/c/Users/oschwery/Documents/Teaching/RevBayesIntro_UI_WSU/BM")  # Linux, MacOS
+
+### Data
+T = readTrees("data/primates_tree.nex")[1]  # read tree file
+
+data = readContinuousCharacterData("data/primates_cont_traits.nex")  # read trait file
+data.excludeAll()  # exclude all characters and then...
+data.includeCharacter(1)  #... re-include the one we want to analyse (Female Mass: Body mass in grams of adult female, log-transformed, mean measurement)
+
+
+### Model
+moves = VectorMoves()  # initiate a vector of moves
+
+# set a log-uniform prior for  the rate parameter sigma2:
+L <- 0.001  # lower bound
+U <- 1  # upper bound
+sigma2 ~ dnLoguniform(L, U)  # stochastic node for rate: log-uniform prior
+moves.append(mvScale(sigma2, weight=1.0))  # scaling move on rate parameter (scaling keeps it positive) with an average of 1 expected moves per MCMC generation
+
+tree <- T  # assign tree as constant node (i.e., fixed tree)
+
+X ~ dnPhyloBrownianREML(tree, branchRates=sigma2^0.5)  # brownian motion model: stochastic node based on tree and branch rate sigma (use `sigma2^0.5` or `sqrt(sigma2)`) to turn our sigma2 rates to the sigma the function wants
+X.clamp(data)  # clamp the observed data to X
+
+### MCMC
+mymodel = model(sigma2)  # turn all connected nodes into a model object (you can specify any node to start, and it will crawl through the connections to get the full DAG)
+mymodel.graph("model.dot")  # save DAG of model
+
+monitors = VectorMonitors()  # initiate a cector of monitors
+monitors.append(mnModel(filename="output/simple_BM_primates.log", printgen=10))  # save posterior samples to log file - thin by only saving every 10th
+monitors.append(mnScreen(printgen=1000, sigma2))  # display every 1000th generation to the screen (so we can follow the analysis in real time), include the rate parameter
+
+mymcmc = mcmc(mymodel, monitors, moves, nruns=2, combine="mixed")  # set up mcmc run object including model, monitors and moves, run two separate chains and combine them by mixing them
+
+mymcmc.burnin(generations = 500, tuningInterval=100)  # run a 500 generation burn-in section, tune the moves every 100 generations
+mymcmc.run(generations=50000)  # run the 
+
+mymcmc.operatorSummary()  # see the operator summary to inspect mixing behaviours of your moves (e.g. whether acceptance ratio is around 0.4)
+
+# now go find your log files in the output folder!
